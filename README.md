@@ -9,9 +9,10 @@ in-depth details: http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netfl
 * dashboard - Spring boot dashboard admin console for all microservices.
 
 # Usage
-* ./build_images.sh (Build docker images for all from code)
-* cd docker
-* ./run-cluster.sh
+* Build docker images from code and run using docker-compose.
+` ./build_images.sh
+  cd docker
+  ./run-cluster.sh`
 
 # Access/Ports
 * eureka - http://localhost:8761
