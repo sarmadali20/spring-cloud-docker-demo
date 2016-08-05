@@ -1,0 +1,27 @@
+version: '2'
+services:
+  notes:
+    image: pxlim/notes
+    links:
+     - eureka
+    expose:
+     - "8686"
+  edge:
+    image: pxlim/edge
+    ports:
+     - "8080:8080"
+    links:
+     - eureka
+     - notes
+  dashboard:
+    image: pxlim/dashboard
+    ports:
+     - "8989:8989"
+    links:
+     - eureka
+     - notes
+     - edge
+  eureka:
+    image: pxlim/eureka
+    ports:
+     - "8761:8761"

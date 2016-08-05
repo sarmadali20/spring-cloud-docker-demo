@@ -1,0 +1,36 @@
+info:
+  component: notes
+  version: 1.0.0
+
+server:
+  port: 8686
+  tomcat:
+    accesslog:
+      enabled: true
+
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 2
+    leaseExpirationDurationInSeconds: 4
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:8761/eureka/,http://localhost:8761/eureka/
+    registryFetchIntervalSeconds: 5
+    healthcheck:
+          enabled: true
+    lease:
+          duration: 5
+
+logging:
+  file: notes.log
+  level:
+    ROOT: INFO

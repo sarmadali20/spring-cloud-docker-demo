@@ -1,0 +1,49 @@
+info:
+  component: edge
+  version: 1.0.0
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+zuul:
+  prefix: /api
+  routes:
+    notes:
+      prefix: /notes
+      path: /**
+      stripPrefix: false
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 2
+    leaseExpirationDurationInSeconds: 4
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:8761/eureka/,http://localhost:8761/eureka/
+    registryFetchIntervalSeconds: 5
+    healthcheck:
+          enabled: true
+    lease:
+          duration: 5
+
+server:
+  port: 8080
+
+# Increase the Hystrix timeout to 60s (globally)
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+logging:
+  file: edge.log
+  level:
+    ROOT: INFO
