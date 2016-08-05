@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Eureka Server</name>
+	<name>eureka</name>
 	<description>Eureka Server demo project</description>
 
 	<parent>
@@ -89,13 +89,13 @@
 					</requiresUnpack>
 				</configuration>
 			</plugin>
-			<plugin>
+			<!--<plugin>
 				<groupId>pl.project13.maven</groupId>
 				<artifactId>git-commit-id-plugin</artifactId>
                 <configuration>
                   <failOnNoGitDirectory>false</failOnNoGitDirectory>
                 </configuration>
-			</plugin>
+			</plugin>-->
 			<plugin>
 				<!--skip deploy (this is just a test module) -->
 				<artifactId>maven-deploy-plugin</artifactId>
